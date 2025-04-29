@@ -42,19 +42,11 @@ namespace QualificationCoursesExam.Models {
             .IsRequired(); 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
 
-            if (!options.IsConfigured)
-            {
-                options.UseInMemoryDatabase("TestDB");
-                options.UseSqlServer(@"Server=DESKTOP-RSI5KJL;Database=QualificationCourses;Trusted_Connection=True;TrustServerCertificate=True;");
-            }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-RSI5KJL;Database=QualificationCourses;Trusted_Connection=True;TrustServerCertificate=True;");
         }
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(@"Server=DESKTOP-RSI5KJL;Database=QualificationCourses;Trusted_Connection=True;TrustServerCertificate=True;");
-        //}
 
     }
 }
