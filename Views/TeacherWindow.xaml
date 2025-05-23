@@ -6,86 +6,125 @@
         xmlns:local="clr-namespace:QualificationCoursesExam.Views"
         mc:Ignorable="d"
         Title="Учитель" Height="450" Width="800">
-    <TabControl>
-        <TabItem Header="Мои курсы">
-            <Grid>
-                <DataGrid x:Name="coursesGrid" AutoGenerateColumns="False" Margin="10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
-                        <DataGridTextColumn Header="Тематика" Binding="{Binding Topic}"/>
-                        <DataGridTextColumn Header="Часы" Binding="{Binding DurationHours}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </TabItem>
+    <Border Background="White"
+            BorderBrush="CornflowerBlue"
+            BorderThickness="2"
+            CornerRadius="5"
+            Padding="20">
+        <TabControl>
+            <TabItem Header="Мои курсы">
+                <Grid>
+                    <DataGrid x:Name="coursesGrid" AutoGenerateColumns="False" Margin="10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
+                            <DataGridTextColumn Header="Тематика" Binding="{Binding Topic}"/>
+                            <DataGridTextColumn Header="Часы" Binding="{Binding DurationHours}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,50,20" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </TabItem>
 
-        <TabItem Header="Расписание">
-            <Grid>
-                <DataGrid x:Name="scheduleGrid" AutoGenerateColumns="False" Margin="10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Курс" Binding="{Binding Course}"/>
-                        <DataGridTextColumn Header="Дата начала" Binding="{Binding StartDate}"/>
-                        <DataGridTextColumn Header="Дата окончания" Binding="{Binding EndDate}"/>
-                        <DataGridTextColumn Header="Аудитория" Binding="{Binding Classroom}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </TabItem>
+            <TabItem Header="Расписание">
+                <Grid>
+                    <DataGrid x:Name="scheduleGrid" AutoGenerateColumns="False" Margin="10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Курс" Binding="{Binding Course}"/>
+                            <DataGridTextColumn Header="Дата начала" Binding="{Binding StartDate}"/>
+                            <DataGridTextColumn Header="Дата окончания" Binding="{Binding EndDate}"/>
+                            <DataGridTextColumn Header="Аудитория" Binding="{Binding Classroom}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,50,20" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </TabItem>
 
-        <TabItem Header="Слушатели">
-            <Grid>
-                <DataGrid x:Name="studentsGrid" AutoGenerateColumns="False" Margin="10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" Width="*"/>
-                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
-                        <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="120"/>
-                        <DataGridTextColumn Header="Курс" Binding="{Binding Course}" Width="*"/>
-                        <DataGridTextColumn Header="Дата регистрации" Binding="{Binding RegistrationDate}" Width="120"/>
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="100"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </TabItem>
+            <TabItem Header="Слушатели">
+                <Grid>
+                    <DataGrid x:Name="studentsGrid" AutoGenerateColumns="False" Margin="10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" Width="*"/>
+                            <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                            <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="120"/>
+                            <DataGridTextColumn Header="Курс" Binding="{Binding Course}" Width="*"/>
+                            <DataGridTextColumn Header="Дата регистрации" Binding="{Binding RegistrationDate}" Width="120"/>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,50,20" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </TabItem>
 
-    <TabItem Header="Посещаемость">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+            <TabItem Header="Посещаемость">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                <DataGrid x:Name="attendanceGrid" AutoGenerateColumns="False" SelectionUnit="FullRow" MouseDoubleClick="AttendanceGrid_MouseDoubleClick"
-                SelectionMode="Single">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=dd.MM.yyyy, Mode=OneWay}"/>
-                        <DataGridTextColumn Header="Студент" Binding="{Binding StudentName, Mode=OneWay}"/>
-                        <DataGridTextColumn Header="Курс" Binding="{Binding CourseTitle, Mode=OneWay}"/>
-                        <DataGridCheckBoxColumn Header="Присутствие" Binding="{Binding IsPresent, Mode=OneWay}"/>
-                        <DataGridTextColumn Header="Примечания" Binding="{Binding Notes, Mode=OneWay}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                    <DataGrid x:Name="attendanceGrid" AutoGenerateColumns="False" SelectionUnit="FullRow" MouseDoubleClick="AttendanceGrid_MouseDoubleClick"
+                              SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=dd.MM.yyyy, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Студент" Binding="{Binding StudentName, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Курс" Binding="{Binding CourseTitle, Mode=OneWay}"/>
+                            <DataGridCheckBoxColumn Header="Присутствие" Binding="{Binding IsPresent, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Примечания" Binding="{Binding Notes, Mode=OneWay}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+                        <Button Content="Отметить присутствие" Click="MarkAttendance_Click" Width="200" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Content="Экспорт в .txt" Click="ExportButton_Click" Width="130" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                            </Button.Effect>
+                        </Button>
+                        
+                    </StackPanel>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,-54" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </TabItem>
 
-                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-                <Button Content="Отметить присутствие" Click="MarkAttendance_Click" Width="150" Margin="0,0,10,0"/>
-                    <Button Content="Экспорт в .txt" Click="ExportButton_Click" Width="120"/>
-            </StackPanel>
-        </Grid>
-    </TabItem>
-
-    <TabItem Header="Аттестация">
-        <Grid>
-                <DataGrid x:Name="certificationGrid" AutoGenerateColumns="False" Margin="10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Студент" Binding="{Binding StudentName, Mode=OneWay}" Width="200"/>
-                        <DataGridTextColumn Header="Курс" Binding="{Binding CourseTitle, Mode=OneWay}" Width="200"/>
-                        <DataGridTextColumn Header="Балл" Binding="{Binding TestScore, Mode=OneWay}" Width="80"/>
-                        <DataGridCheckBoxColumn Header="Сдан" Binding="{Binding IsPassed, Mode=OneWay}" IsReadOnly="True" Width="60"/>
-                        <DataGridTextColumn Header="Дата выдачи" Binding="{Binding IssueDate, Mode=OneWay}" Width="100"/>
-                        <DataGridTextColumn Header="Номер сертификата" Binding="{Binding CertificateNumber, Mode=OneWay}" Width="150"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-    </TabItem>
-    </TabControl>
+            <TabItem Header="Аттестация">
+                <Grid>
+                    <DataGrid x:Name="certificationGrid" AutoGenerateColumns="False" Margin="10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Студент" Binding="{Binding StudentName, Mode=OneWay}" Width="200"/>
+                            <DataGridTextColumn Header="Курс" Binding="{Binding CourseTitle, Mode=OneWay}" Width="200"/>
+                            <DataGridTextColumn Header="Балл" Binding="{Binding TestScore, Mode=OneWay}" Width="80"/>
+                            <DataGridCheckBoxColumn Header="Сдан" Binding="{Binding IsPassed, Mode=OneWay}" IsReadOnly="True" Width="60"/>
+                            <DataGridTextColumn Header="Дата выдачи" Binding="{Binding IssueDate, Mode=OneWay}" Width="100"/>
+                            <DataGridTextColumn Header="Номер сертификата" Binding="{Binding CertificateNumber, Mode=OneWay}" Width="150"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,50,20" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Border>
 </Window>

@@ -104,5 +104,24 @@ namespace QualificationCoursesExam.Views {
                 LoadData();
             }
         }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void TakeTest_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedCourse = myCoursesGrid.SelectedItem as Registration;
+            if (selectedCourse == null)
+            {
+                MessageBox.Show("Выберите курс для прохождения теста");
+                return;
+            }
+
+            var testWindow = new TestWindow(_student, selectedCourse.Course);
+            testWindow.ShowDialog();
+        }
+
+
     }
 }

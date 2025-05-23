@@ -16,11 +16,11 @@ namespace QualificationCoursesExam.Models {
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+
             modelBuilder.Entity<Registration>()
                 .HasOne(r => r.Course)
                 .WithMany(c => c.Registrations)
-                .HasForeignKey(r => r.CourseId) 
+                .HasForeignKey(r => r.CourseId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Registration>()
@@ -34,12 +34,12 @@ namespace QualificationCoursesExam.Models {
                 .HasOne(c => c.Teacher)
                 .WithMany(t => t.CoursesAsTeacher)
                 .HasForeignKey(c => c.TeacherId)
-                .OnDelete(DeleteBehavior.NoAction); 
-                
+                .OnDelete(DeleteBehavior.NoAction);
+
 
             modelBuilder.Entity<Course>()
             .Property(c => c.Title)
-            .IsRequired(); 
+            .IsRequired();
         }
 
 

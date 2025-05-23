@@ -1,0 +1,48 @@
+﻿<Window x:Class="QualificationCoursesExam.Views.AddCourseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QualificationCoursesExam.Views"
+        mc:Ignorable="d"
+        Title="Добавить курс" Height="500" Width="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Название курса:" Margin="0,0,0,5"/>
+        <TextBox x:Name="txtTitle" Grid.Row="1" Margin="0,0,0,10"/>
+
+        <TextBlock Grid.Row="2" Text="Описание:" Margin="0,0,0,5"/>
+        <TextBox x:Name="txtDescription" Grid.Row="3" Margin="0,0,0,10"/>
+
+        <TextBlock Grid.Row="4" Text="Тематика:" Margin="0,0,0,5"/>
+        <TextBox x:Name="txtTopic" Grid.Row="5" Margin="0,0,0,10"/>
+
+        <TextBlock Grid.Row="6" Text="Часы:" Margin="0,0,0,5"/>
+        <TextBox x:Name="txtDurationHours" Grid.Row="7" Margin="0,0,0,10"/>
+
+        <TextBlock Grid.Row="8" Text="Цена:" Margin="0,0,0,5"/>
+        <TextBox x:Name="txtPrice" Grid.Row="9" Margin="0,0,0,10"/>
+
+        <TextBlock Grid.Row="10" Text="Преподаватель:" Margin="0,0,0,5"/>
+        <ComboBox x:Name="cmbTeacher" Grid.Row="11" Margin="0,0,0,10"/>
+
+        <Button Grid.Row="12" Content="Добавить курс" HorizontalAlignment="Right" VerticalAlignment="Bottom"  
+                Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0"/>
+        
+    </Grid>
+</Window>

@@ -6,57 +6,93 @@
         xmlns:local="clr-namespace:QualificationCoursesExam.Views"
         mc:Ignorable="d"
         Title="Студент" Height="450" Width="800">
-    <TabControl>
-        <TabItem Header="Каталог курсов">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+    <Border Background="White"
+            BorderBrush="CornflowerBlue"
+            BorderThickness="2"
+            CornerRadius="5"
+            Padding="20">
+        <TabControl>
+            <TabItem Header="Каталог курсов">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <StackPanel Orientation="Horizontal" Margin="10">
-                    <TextBox x:Name="searchBox" Width="200" Margin="0,0,10,0"/>
-                    <Button Content="Поиск" Click="Search_Click" Margin="0,0,10,0"/>
-                    <Button Content="Зарегистрироваться" Click="Register_Click"/>
-                </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="10">
+                        <TextBox x:Name="searchBox" Width="200" Margin="0,0,10,0"/>
+                        <Button Content="Поиск" Click="Search_Click" Margin="0,0,10,0" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Content="Зарегистрироваться" Click="Register_Click" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                            </Button.Effect>
+                        </Button>
 
-                <DataGrid x:Name="coursesGrid" AutoGenerateColumns="False" Grid.Row="1" Margin="10"
-                          SelectionMode="Single" SelectionUnit="FullRow">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
-                        <DataGridTextColumn Header="Тематика" Binding="{Binding Topic}"/>
-                        <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher.FullName}"/>
-                        <DataGridTextColumn Header="Часы" Binding="{Binding DurationHours}"/>
-                        <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </TabItem>
+                    </StackPanel>
 
-        <TabItem Header="Мои курсы">
-            <Grid>
-                <DataGrid x:Name="myCoursesGrid" AutoGenerateColumns="False" Margin="10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Курс" Binding="{Binding Course.Title}"/>
-                        <DataGridTextColumn Header="Дата регистрации" Binding="{Binding RegistrationDate}"/>
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Status}"/>
-                        <DataGridTextColumn Header="Оценка" Binding="{Binding Certification.TestScore}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </TabItem>
+                    <DataGrid x:Name="coursesGrid" AutoGenerateColumns="False" Grid.Row="1" Margin="10"
+                              SelectionMode="Single" SelectionUnit="FullRow">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
+                            <DataGridTextColumn Header="Тематика" Binding="{Binding Topic}"/>
+                            <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher.FullName}"/>
+                            <DataGridTextColumn Header="Часы" Binding="{Binding DurationHours}"/>
+                            <DataGridTextColumn Header="Цена" Binding="{Binding Price}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,1,570,-250" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                    
+                </Grid>
+            </TabItem>
 
-        <TabItem Header="Расписание">
-            <Grid>
-                <DataGrid x:Name="scheduleGrid" AutoGenerateColumns="False" Margin="10">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Курс" Binding="{Binding Course.Title}"/>
-                        <DataGridTextColumn Header="Дата начала" Binding="{Binding StartDate}"/>
-                        <DataGridTextColumn Header="Дата окончания" Binding="{Binding EndDate}"/>
-                        <DataGridTextColumn Header="Аудитория" Binding="{Binding Classroom}"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-        </TabItem>
-    </TabControl>
+            <TabItem Header="Мои курсы">
+                <Grid>
+                    <DataGrid x:Name="myCoursesGrid" AutoGenerateColumns="False" Margin="10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Курс" Binding="{Binding Course.Title}"/>
+                            <DataGridTextColumn Header="Дата регистрации" Binding="{Binding RegistrationDate}"/>
+                            <DataGridTextColumn Header="Статус" Binding="{Binding Status}"/>
+                            <DataGridTextColumn Header="Оценка" Binding="{Binding Certification.TestScore}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,1,570,20" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                    <Button Content="Пройти тест" Click="TakeTest_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,25,25" Width="125" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Расписание">
+                <Grid>
+                    <DataGrid x:Name="scheduleGrid" AutoGenerateColumns="False" Margin="10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Курс" Binding="{Binding Course.Title}"/>
+                            <DataGridTextColumn Header="Дата начала" Binding="{Binding StartDate}"/>
+                            <DataGridTextColumn Header="Дата окончания" Binding="{Binding EndDate}"/>
+                            <DataGridTextColumn Header="Аудитория" Binding="{Binding Classroom}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Выход" Click="Exit_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,1,570,20" Width="140" Height="40" Padding="15,8" FontSize="16" FontWeight="Medium" Background="CornflowerBlue" Foreground="White" BorderThickness="0">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Border>
 </Window>

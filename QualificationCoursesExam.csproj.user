@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AddCourseWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\EducationDepartmentWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,8 +19,14 @@
     <Compile Update="Views\TeacherWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\TestWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\AddCourseWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\EducationDepartmentWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -28,6 +37,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\TeacherWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TestWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

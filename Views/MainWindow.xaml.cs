@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using QualificationCoursesExam.Views; 
+using QualificationCoursesExam.Views;
 
 namespace QualificationCoursesExam {
     public partial class MainWindow : Window {
@@ -38,6 +38,12 @@ namespace QualificationCoursesExam {
                 }
             }
         }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
 
         public void OpenRoleWindow(User user)
         {

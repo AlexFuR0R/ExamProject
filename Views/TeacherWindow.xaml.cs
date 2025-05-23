@@ -283,6 +283,11 @@ namespace QualificationCoursesExam.Views {
                 MessageBox.Show($"Ошибка при экспорте: {ex.Message}");
             }
         }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+    
 
     }
 }
