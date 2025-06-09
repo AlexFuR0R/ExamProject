@@ -16,5 +16,9 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app ./
 
+<<<<<<< HEAD
 # Указываем команду для запуска 
+=======
+# Указываем команду для запуска приложения
+>>>>>>> parent of 1d00976 (Documentation is complite)
 ENTRYPOINT ["dotnet", "QualificationCoursesExam.dll"]
