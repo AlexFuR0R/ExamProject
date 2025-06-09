@@ -5,7 +5,6 @@ COPY *.csproj ./
 RUN dotnet restore
 
 COPY . ./
-WORKDIR /src/QualificationCoursesExam
 RUN dotnet publish -c Release -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
