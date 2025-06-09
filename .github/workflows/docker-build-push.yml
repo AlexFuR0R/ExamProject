@@ -2,11 +2,12 @@ name: Docker Build and Push
 
 on:
   push:
-    branches: [ master ] 
+    branches: [ main ]
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -22,4 +23,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/practice-image:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/your-image-name:latest
