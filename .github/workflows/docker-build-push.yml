@@ -23,4 +23,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/your-image-name:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/docker-practice:latest
