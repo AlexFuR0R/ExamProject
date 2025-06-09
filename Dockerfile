@@ -16,5 +16,5 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app ./
 
-# Указываем команду для запуска приложения
+# Указываем команду для запуска прил
 ENTRYPOINT ["dotnet", "QualificationCoursesExam.dll"]
