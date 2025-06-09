@@ -2,7 +2,7 @@
 WORKDIR /src
 
 COPY *.csproj ./
-RUN dotnet restore
+RUN dotnet restore /p:EnableWindowsTargeting=true
 
 COPY . ./
 RUN dotnet publish -c Release -o /app
